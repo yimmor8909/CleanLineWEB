@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear usuarios')
+@section('title', 'Crear cliente')
 
 @section('content_header')
-    <h1>Crear usuarios</h1>
+    <h1>Crear cliente</h1>
 @stop
 
 @section('content')
-<form action="{{ url('/usuarios/guardar')}}" method="post">
+<form action="{{ url('/cliente/guardar')}}" method="post">
   @csrf
 
     <div class="mb-3">

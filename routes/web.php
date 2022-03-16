@@ -32,13 +32,13 @@ Route::get('/register', [App\Http\Controllers\LoginController::class, 'getRegist
 Route::post('/register', [App\Http\Controllers\LoginController::class, 'postRegister'])->name('postRegister');
 
 //Usuarios
-Route::get('/usuarios/index', [App\Http\Controllers\UsuarioController::class, 'index'])->name('usuarios');
-Route::get('/usuarios/{id}/show', [App\Http\Controllers\UsuarioController::class, 'mostrar'])->name('mostrarUsuarios');
-Route::get('/usuarios/crear', [App\Http\Controllers\UsuarioController::class, 'crear'])->name('crearUsuarios');
-Route::post('/usuarios/guardar', [App\Http\Controllers\UsuarioController::class, 'guardar'])->name('guardarUsuarios');
-Route::get('/usuarios/{id}/editar', [App\Http\Controllers\UsuarioController::class, 'editar'])->name('editarUsuarios');
-Route::post('/usuarios/{id}/editarUsuario', [App\Http\Controllers\UsuarioController::class, 'editarUsuario'])->name('editarUsuario');
-Route::get('/usuarios/{id}/eliminar', [App\Http\Controllers\UsuarioController::class, 'eliminar'])->name('eliminarUsuarios');
+Route::get('/cliente/index', [App\Http\Controllers\UsuarioController::class, 'index'])->name('clientes');
+Route::get('/cliente/{id}/show', [App\Http\Controllers\UsuarioController::class, 'mostrar'])->name('mostrarClientes');
+Route::get('/cliente/crear', [App\Http\Controllers\UsuarioController::class, 'crear'])->name('crearClientes');
+Route::post('/cliente/guardar', [App\Http\Controllers\UsuarioController::class, 'guardar'])->name('guardarClientes');
+Route::get('/cliente/{id}/editar', [App\Http\Controllers\UsuarioController::class, 'editar'])->name('editarClientes');
+Route::post('/cliente/{id}/editarCliente', [App\Http\Controllers\UsuarioController::class, 'editarUsuario'])->name('editarClientes');
+Route::get('/cliente/{id}/eliminar', [App\Http\Controllers\UsuarioController::class, 'eliminar'])->name('eliminarClientes');
 
 
 //Categorías
@@ -66,3 +66,7 @@ Route::get('/productos/{id}/eliminar', [App\Http\Controllers\ProductoController:
 
 //Reportes
 Route::get('/reportes/index', [App\Http\Controllers\ReporteController::class, 'index'])->name('reportes');
+
+//Orden de compra
+Route::get('/orden/crear', [App\Http\Controllers\OrdenCompraController::class, 'crear'])->name('crearOrdenCompra');
+Route::get('/orden/consultar', [App\Http\Controllers\OrdenCompraController::class, 'consultar'])->name('consultarOrdenCompra');

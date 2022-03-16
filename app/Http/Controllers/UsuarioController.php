@@ -15,16 +15,16 @@ class UsuarioController extends Controller
 
     public function index(){
         $usuarios = User::all();
-        return view('usuario.index', compact('usuarios'));
+        return view('cliente.index', compact('usuarios'));
     }
 
     public function mostrar($id){
         $usuario = User::find($id);
-        return view('usuario.show', compact('usuario'));
+        return view('cliente.show', compact('usuario'));
     }
 
     public function crear(){
-        return view('usuario.crear');
+        return view('cliente.crear');
     }
 
     public function guardar(Request $request){
@@ -37,12 +37,12 @@ class UsuarioController extends Controller
 
         $usuario->save();
 
-        return redirect('/usuarios/index');
+        return redirect('/cliente/index');
     }
 
     public function editar($id){
         $usuario = User::find($id);
-        return view('usuario.editar', compact('usuario'));
+        return view('cliente.editar', compact('usuario'));
     }
 
     public function editarUsuario(Request $request, $id){
@@ -55,12 +55,12 @@ class UsuarioController extends Controller
         
         $usuario->update();
 
-        return redirect('/usuarios/index');
+        return redirect('/cliente/index');
     }
 
     public function eliminar($id){
         $usuario = User::find($id);
         $usuario->delete();
-        return redirect('/usuarios/index');
+        return redirect('/cliente/index');
     }
 }

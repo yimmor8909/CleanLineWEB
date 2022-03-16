@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Clientes')
 
 @section('content_header')
-    <h1>USUARIOS</h1>
+    <h1>CLIENTES</h1>
 @stop
 
 @section('content')
 
 <div class="btns">
-    <a href="{{ url('/usuarios/crear')}}" class="btn btn-primary">
-        <i class="fas fa-plus"></i> Crear usuario</a>
+    <a href="{{ url('/cliente/crear')}}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Crear cliente</a>
 </div>  
 
     <table class="table" id="tblusuarios">
@@ -29,15 +29,15 @@
                   <td>{{$usuario->name}}</td>
                   <td>{{$usuario->email}}</td>
                   <td>
-                    <a class="opts" href="{{ url('/usuarios/'.$usuario->id.'/show')}}" data-toggle="tooltip" 
+                    <a class="opts" href="{{ url('/cliente/'.$usuario->id.'/show')}}" data-toggle="tooltip" 
                         data-bs-placement="top" title="Mostrar usuario">
                     <i class="fas fa-eye"></i></a>
 
-                    <a class="opts" href="{{ url('/usuarios/'.$usuario->id.'/editar')}}" data-toggle="tooltip" 
+                    <a class="opts" href="{{ url('/cliente/'.$usuario->id.'/editar')}}" data-toggle="tooltip" 
                         data-bs-placement="top" title="Editar usuario">
                     <i class="fas fa-edit"></i></a>
 
-                    <a class="opts" href="{{ url('/usuarios/'.$usuario->id.'/eliminar')}}" data-toggle="tooltip" 
+                    <a class="opts" href="{{ url('/cliente/'.$usuario->id.'/eliminar')}}" data-toggle="tooltip" 
                         data-bs-placement="top" title="Eliminar usuario">
                     <i class="fas fa-trash"></i></a>
 

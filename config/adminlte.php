@@ -237,10 +237,10 @@ return [
         ],
 
         // Sidebar items:
-        [
+        /*[
             'type' => 'sidebar-menu-search',
             'text' => 'Buscar',
-        ],
+        ],*/
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -267,17 +267,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'Crear',
-                    'url'  => '#',
+                    'url'  => 'orden/crear',
                 ],
                 [
                     'text' => 'Consultar',
-                    'url'  => '#',
+                    'url'  => 'orden/consultar',
                 ],
             ],
         ],
         [
             'text' => 'Clientes',
-            'url'  => 'usuarios/index',
+            'url'  => 'cliente/index',
             'icon' => 'fas fa-fw fa-user',
         ],
     ],

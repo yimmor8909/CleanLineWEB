@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar usuario')
+@section('title', 'Editar cliente')
 
 @section('content_header')
-    <h1>Editar usuario</h1>
+    <h1>Editar cliente</h1>
 @stop
 
 @section('content')
-<form action="{{ url('/usuarios/'.$usuario->id.'/editarUsuario')}}" method="post">
+<form action="{{ url('/cliente/'.$usuario->id.'/editarCliente')}}" method="post">
   @csrf
     <div class="mb-3">
       <label class="form-label">Nombre usuario: </label>

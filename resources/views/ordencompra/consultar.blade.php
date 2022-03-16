@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Reportes')
+@section('title', 'Consultar orden de compra')
 
 @section('content_header')
-    <h1>REPORTES</h1>
+    <h1>Consultar orden de compra a proveedor</h1>
 @stop
 
 @section('content')
-    <p>Sección de reportes</p>
+    
 @stop
 
 @section('css')
@@ -15,5 +15,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>  </script>
 @stop
