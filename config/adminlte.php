@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
+    'usermenu_enabled' => false,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'Buscar',
             'topnav_right' => true,
         ],
         [
@@ -249,11 +249,11 @@ return [
         [
             'text' => 'Proveedores',
             'route'  => 'proveedores',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-user-tag',
         ],
         [
             'text'    => 'Ventas',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-store',
             'submenu' => [
                 [
                     'text' => 'Consultar factura',
@@ -263,7 +263,7 @@ return [
         ],
         [
             'text'    => 'Orden de compra',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-cart-arrow-down',
             'submenu' => [
                 [
                     'text' => 'Crear',
@@ -278,7 +278,7 @@ return [
         [
             'text' => 'Clientes',
             'url'  => 'cliente/index',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-users',
         ],
     ],
 
