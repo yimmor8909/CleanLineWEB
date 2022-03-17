@@ -25,7 +25,7 @@
 
             <!--El segundo parámetro se manda en null porque no lleva ningun
             valor por defecto-->
-            {!!  Form::email('email', null, ['class' => 'form-control']) !!}
+            {!!  Form::email('email', null, ['class' => 'form-control', 'required']) !!}
         </div>
 
         <label for="password" class="mtop16">Contraseña:</label>
@@ -34,7 +34,7 @@
                 <!--Hacer uso del fontawesome-->
                 <i class="fas fa-lock"></i>
             </div>
-            {!!  Form::password('password', ['class' => 'form-control']) !!}
+            {!!  Form::password('password', ['class' => 'form-control', 'required']) !!}
         </div>
 
         {!! Form::submit('Ingresar', ['class' => 'btn btn-success mtop16'])!!}

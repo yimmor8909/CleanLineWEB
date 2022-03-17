@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Proveedor;
 use App\Models\Opciones_definidas;
+use Illuminate\Support\Facades\DB;
 
 class ProveedorController extends Controller
 {
@@ -15,8 +16,18 @@ class ProveedorController extends Controller
     }
 
     public function index(){
-        $proveedores = Proveedor::all();
-        return view('proveedor.index', compact('proveedores'));
+
+        $sql = 'SELECT id_proveedor, 
+        case when nit is not null then nit else numero_documento end as documento,
+        case when nombres is not null then 
+        concat(nombres, " ", apellidos)  else 
+        nombre end as nombre 
+        from proveedores 
+        left join personas on personas.id_persona = proveedores.id_persona';
+        
+        $proveedores = DB::select($sql);
+        $data = ['proveedores' => $proveedores];
+        return view('proveedor.index', $data);
     }
 
     public function mostrar($id){
@@ -49,16 +60,16 @@ class ProveedorController extends Controller
         return redirect('/proveedores/index');
     }
 
-    public function editar($id){
-        $proveedor = Proveedor::find($id);
+    public function editar($id_proveedor){
+        $proveedor = Proveedor::find($id_proveedor);
         return view('proveedor.editar', compact('proveedor'));
     }
 
-    public function editarProveedor(Request $request, $id){
+    public function editarProveedor(Request $request, $id_proveedor){
         $codigoproveedor = $request->codigoproveedor;
         $nombreproveedor = $request->nombreproveedor;
         
-        $proveedor = Proveedor::find($id);
+        $proveedor = Proveedor::find($id_proveedor);
         $proveedor->codigo = $codigoproveedor;
         $proveedor->nombre = $nombreproveedor;
         
@@ -67,8 +78,8 @@ class ProveedorController extends Controller
         return redirect('/proveedores/index');
     }
 
-    public function eliminar($id){
-        $proveedor = Proveedor::find($id);
+    public function eliminar($id_proveedor){
+        $proveedor = Proveedor::find($id_proveedor);
         $proveedor->delete();
         return redirect('/proveedores/index');
     }

@@ -7,11 +7,11 @@
 @stop
 
 @section('content')
-<form action="{{ url('/proveedores/'.$proveedor->id.'/editarProveedor')}}" method="post">
+<form action="{{ url('/proveedores/'.$proveedor->id_proveedor.'/editarProveedor')}}" method="post">
   @csrf
     <div class="mb-3">
       <label class="form-label">Código proveedor: </label>
-      <input type="text" class="form-control" value="{{$proveedor->codigo}}" name="codigoproveedor" >
+      <input type="text" class="form-control" value="{{$proveedor->documento}}" name="codigoproveedor" >
     </div>
     <div class="mb-3">
       <label class="form-label">Nombre proveedor</label>
@@ -26,5 +26,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    
 @stop

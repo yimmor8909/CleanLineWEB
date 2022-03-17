@@ -3,16 +3,14 @@
 @section('title', 'Clientes')
 
 @section('content_header')
-    <h1>CLIENTES</h1>
+<div class="row">
+    <h1>Clientes</h1>
+    <a href="{{ url('/cliente/crear')}}" class="btn btn-primary btn-sm ml-auto">
+        <i class="fas fa-plus"></i> Crear cliente</a>
+</div>
 @stop
 
 @section('content')
-
-<div class="btns">
-    <a href="{{ url('/cliente/crear')}}" class="btn btn-primary">
-        <i class="fas fa-plus"></i> Crear cliente</a>
-</div>  
-
     <table class="table" id="tblusuarios">
         <thead>
             <tr>
@@ -29,9 +27,6 @@
                   <td>{{$usuario->name}}</td>
                   <td>{{$usuario->email}}</td>
                   <td>
-                    <a class="opts" href="{{ url('/cliente/'.$usuario->id.'/show')}}" data-toggle="tooltip" 
-                        data-bs-placement="top" title="Mostrar usuario">
-                    <i class="fas fa-eye"></i></a>
 
                     <a class="opts" href="{{ url('/cliente/'.$usuario->id.'/editar')}}" data-toggle="tooltip" 
                         data-bs-placement="top" title="Editar usuario">
@@ -49,21 +44,38 @@
 @stop
 
 @section('css')
-
-    <style>
-        .btns{
-            margin-bottom: 15px;
-        }
-        
-    </style>
-
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
 <script> 
     $(document).ready(function(){
-       $('#tblusuarios').DataTable();
+       $('#tblusuarios').DataTable({
+        "language": idioma_espanol
+       });
     });
+
+    var idioma_espanol ={
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }
+       
+    }
+
  </script>
 @stop
