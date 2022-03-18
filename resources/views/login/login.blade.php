@@ -6,12 +6,12 @@
 
 <!--Mostrar sección de contenido exclusivo de esta plantilla, se debe iniciar y finalizar-->
 @section('content')
-<div class="box box_login shadow ">
+<div class="box box_login shadow">
     <div class="inside">
 
         <div class="header">
-           <a href="{{url('/')}}"></a>
-           <img class="logo" src="{{url('/static/images/logo.jpg')}}" alt="">
+           <h1>Iniciar sesión</h1>
+          <!-- <img class="logo" src="{{url('/static/images/logo.jpg')}}" alt="">-->
         </div>
 
         {!! Form::open(['url' => '/login']) !!}
@@ -41,8 +41,15 @@
         {!!  Form::close() !!}
 
         <div class="footer mtop16">
-            <a href="{{url('/register')}}">Registrarse</a>
-            <a href="{{url('/recover')}}">Recuperar contraseña</a>
+
+            <div class="row">
+                 <a href="{{url('/register')}}">¿Aún no tienes una cuenta? Regístrate</a>
+            </div>
+
+            <div class="row mtop16">
+                <a href="{{url('/recover')}}">Recuperar contraseña</a>
+            </div>
+
         </div>
     </div>
 
