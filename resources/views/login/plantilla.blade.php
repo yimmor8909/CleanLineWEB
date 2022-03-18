@@ -25,7 +25,6 @@
 <body>
 
     <!--Condicional que muestra un mensaje utilizando la clase alerta-->
-    
     @if(Session::has('message'))
         <div class="container">
             <div class="alert alert-{{Session::get('typealert')}}" style="display:none;">
@@ -49,8 +48,12 @@
 
      <!--Mostrar sección de contenido-->
     @section('content')
-    hola mundo
     @show
+
+
+    @section('js')
+    @show
+
     
 </body>
 </html>

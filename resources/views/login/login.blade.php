@@ -34,7 +34,12 @@
                 <!--Hacer uso del fontawesome-->
                 <i class="fas fa-lock"></i>
             </div>
-            {!!  Form::password('password', ['class' => 'form-control', 'required']) !!}
+            {!!  Form::password('password', ['id' => 'password', 'class' => 'form-control', 'required']) !!}
+            <div class="input-group-append">
+                <button id="show_password" class="btn btn-secondary" 
+                        type="button" onclick="mostrarPassword()"> 
+                    <span class="fa fa-eye-slash icon"></span> </button>
+              </div>
         </div>
 
         {!! Form::submit('Ingresar', ['class' => 'btn btn-success mtop16'])!!}
@@ -55,3 +60,28 @@
 
 </div>
 @stop
+
+
+@section('js')
+    <script> 
+        function mostrarPassword(){
+            var cambio = document.getElementById("password");
+            if(cambio.type == "password"){
+                cambio.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            }else{
+                cambio.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+            
+        } 
+        
+        $(document).ready(function () {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function () {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
+@stop
+
