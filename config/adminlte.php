@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
+    'usermenu_enabled' => false,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'Buscar',
             'topnav_right' => true,
         ],
         [
@@ -237,10 +237,10 @@ return [
         ],
 
         // Sidebar items:
-        [
+        /*[
             'type' => 'sidebar-menu-search',
             'text' => 'Buscar',
-        ],
+        ],*/
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -249,11 +249,11 @@ return [
         [
             'text' => 'Proveedores',
             'route'  => 'proveedores',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-user-tag',
         ],
         [
             'text'    => 'Ventas',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-store',
             'submenu' => [
                 [
                     'text' => 'Consultar factura',
@@ -263,22 +263,22 @@ return [
         ],
         [
             'text'    => 'Orden de compra',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-cart-arrow-down',
             'submenu' => [
                 [
                     'text' => 'Crear',
-                    'url'  => '#',
+                    'url'  => 'orden/crear',
                 ],
                 [
                     'text' => 'Consultar',
-                    'url'  => '#',
+                    'url'  => 'orden/consultar',
                 ],
             ],
         ],
         [
             'text' => 'Clientes',
-            'url'  => 'usuarios/index',
-            'icon' => 'fas fa-fw fa-user',
+            'url'  => 'cliente/index',
+            'icon' => 'fas fa-fw fa-users',
         ],
     ],
 
