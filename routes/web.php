@@ -39,6 +39,7 @@ Route::post('/usuarios/guardar', [App\Http\Controllers\UsuarioController::class,
 Route::get('/usuarios/{id}/editar', [App\Http\Controllers\UsuarioController::class, 'editar'])->name('editarUsuarios');
 Route::post('/usuarios/{id}/editarUsuario', [App\Http\Controllers\UsuarioController::class, 'editarUsuario'])->name('editarUsuario');
 Route::get('/usuarios/{id}/eliminar', [App\Http\Controllers\UsuarioController::class, 'eliminar'])->name('eliminarUsuarios');
+Route::get('/usuarios/{id}/eliminar', [App\Http\Controllers\UsuarioController::class, 'eliminar'])->name('eliminarUsuarios');
 
 
 //Categorías
