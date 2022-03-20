@@ -30,6 +30,7 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'getLogout']
 Route::get('/register', [App\Http\Controllers\LoginController::class, 'getRegister'])->name('getRegister');
 Route::post('/register', [App\Http\Controllers\LoginController::class, 'postRegister'])->name('postRegister');
 
+
 //Proveedores
 Route::get('/proveedores/index', [App\Http\Controllers\ProveedorController::class, 'index'])->name('proveedores');
 Route::get('/proveedores/crear', [App\Http\Controllers\ProveedorController::class, 'crear'])->name('crearProveedores');
