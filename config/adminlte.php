@@ -276,8 +276,13 @@ return [
             ],
         ],
         [
-            'text' => 'Clientes',
+            'text' => 'usuarios',
             'url'  => 'cliente/index',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Clientes',
+            'url'  => 'clientes/index',
             'icon' => 'fas fa-fw fa-users',
         ],
     ],

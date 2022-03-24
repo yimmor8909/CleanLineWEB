@@ -95,10 +95,45 @@ class LoginController extends Controller
     }
 
     
-
+    //restablecer contraseña
     public function getRecover(){
-        return view('login.recover');
+       return view('login.recover');
     }
+    public function postRecover(Request $request){
+        $rules =[
+            'email' => 'required|email',
+            
+        ];
+
+        $messages =[
+            'email.required' => 'El correo electrónico es requerido.',
+            'email.email' => 'El correo electrónico no cumple con el formato.',
+           
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message', 'Error al hacer login')
+            ->with('typealert', 'danger');
+        else:
+           $user = User::where('email', $request->input('email'))->count();
+           if ($user==1): 
+           else:
+                return back()->with('message','este correo no existe.')->with('typealert','danger');
+
+           endif;
+
+            
+           
+           
+        endif;
+    }
+        
+    
+    
+
+
+
 
     //Cerrar sesión del usuario
     public function getLogout(){

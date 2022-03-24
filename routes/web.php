@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,14 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'getLogout']
 //Rutas para registrarse
 Route::get('/register', [App\Http\Controllers\LoginController::class, 'getRegister'])->name('getRegister');
 Route::post('/register', [App\Http\Controllers\LoginController::class, 'postRegister'])->name('postRegister');
+
+//recuperar contraseña
+Route::get('/recover', [App\Http\Controllers\LoginController::class, 'getRecover'])->name('getRecover');
+Route::post('/recover', [App\Http\Controllers\LoginController::class, 'postRecover'])->name('postRecover');
+
+//tabla clientes
+Route::get('/clientes/index', [App\Http\Controllers\clienteController::class, 'index'])->name('index');
+
 
 
 //Proveedores
