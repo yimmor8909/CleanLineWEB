@@ -52,6 +52,8 @@ return [
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
 
+
+
     /*
     |--------------------------------------------------------------------------
     | User Menu
@@ -338,7 +340,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -435,4 +437,5 @@ return [
     */
 
     'livewire' => false,
+
 ];
