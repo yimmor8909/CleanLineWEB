@@ -123,11 +123,12 @@
     <label for="date" class="mtop16">Date</label>
     <div class="">
         <div class="input-group date" id="datepicker">
+            <span class="input-group-text">
+                <i class="fa fa-calendar"></i>
+            </span>
             <input type="text" class="form-control">
             <span class="input-group-append">
-                <span class="input-group-text">
-                    <i class="fa fa-calendar"></i>
-                </span>
+               
             </span>
         </div>
     </div>
