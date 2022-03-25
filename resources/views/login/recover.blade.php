@@ -2,7 +2,7 @@
 @extends('login.plantilla')
 
 <!--Reemplazar el titulo-->
-@section('title', 'Login')
+@section('title', 'Recuperar contraseña')
 
 <!--Mostrar sección de contenido exclusivo de esta plantilla, se debe iniciar y finalizar-->
 @section('content')
@@ -10,11 +10,11 @@
     <div class="inside">
 
         <div class="header">
-           <h1>Iniciar sesión</h1>
+           <h1>Recuperar contraseña</h1>
           <!-- <img class="logo" src="{{url('/static/images/logo.jpg')}}" alt="">-->
         </div>
 
-        {!! Form::open(['url' => '/login']) !!}
+        {!! Form::open(['url' => '/recover']) !!}
 
         <label for="email">Correo electrónico:</label>
         <div class="input-group">
@@ -28,21 +28,7 @@
             {!!  Form::email('email', null, ['class' => 'form-control', 'required']) !!}
         </div>
 
-        <label for="password" class="mtop16">Contraseña:</label>
-        <div class="input-group">
-            <div class="input-group-text">
-                <!--Hacer uso del fontawesome-->
-                <i class="fas fa-lock"></i>
-            </div>
-            {!!  Form::password('password', ['id' => 'password', 'class' => 'form-control', 'required']) !!}
-            <div class="input-group-append">
-                <button id="show_password" class="btn btn-secondary" 
-                        type="button" onclick="mostrarPassword()"> 
-                    <span class="fa fa-eye-slash icon"></span> </button>
-              </div>
-        </div>
-
-        {!! Form::submit('Ingresar', ['class' => 'btn btn-success mtop16'])!!}
+        {!! Form::submit('Recuperar contraseña', ['class' => 'btn btn-success mtop16'])!!}
         {!!  Form::close() !!}
 
         <div class="footer mtop16">
@@ -52,7 +38,7 @@
             </div>
 
             <div class="row mtop16">
-                <a href="{{url('/recover')}}">Recuperar contraseña</a>
+                <a href="{{url('/login')}}">Ingresar a mi cuenta</a>
             </div>
 
         </div>

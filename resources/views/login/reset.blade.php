@@ -2,7 +2,7 @@
 @extends('login.plantilla')
 
 <!--Reemplazar el titulo-->
-@section('title', 'Login')
+@section('title', 'Recuperar contraseña')
 
 <!--Mostrar sección de contenido exclusivo de esta plantilla, se debe iniciar y finalizar-->
 @section('content')
@@ -10,11 +10,11 @@
     <div class="inside">
 
         <div class="header">
-           <h1>Iniciar sesión</h1>
+           <h1>Recuperar contraseña</h1>
           <!-- <img class="logo" src="{{url('/static/images/logo.jpg')}}" alt="">-->
         </div>
 
-        {!! Form::open(['url' => '/login']) !!}
+        {!! Form::open(['url' => '']) !!}
 
         <label for="email">Correo electrónico:</label>
         <div class="input-group">
@@ -25,24 +25,21 @@
 
             <!--El segundo parámetro se manda en null porque no lleva ningun
             valor por defecto-->
-            {!!  Form::email('email', null, ['class' => 'form-control', 'required']) !!}
+            {!!  Form::email('email', $email, ['class' => 'form-control', 'required']) !!}
         </div>
 
-        <label for="password" class="mtop16">Contraseña:</label>
+        <label for="cod_recuperacion" class="mtop16">Código de recuperación:</label>
         <div class="input-group">
             <div class="input-group-text">
-                <!--Hacer uso del fontawesome-->
-                <i class="fas fa-lock"></i>
+                <i class="far fa-id-card"></i>
             </div>
-            {!!  Form::password('password', ['id' => 'password', 'class' => 'form-control', 'required']) !!}
-            <div class="input-group-append">
-                <button id="show_password" class="btn btn-secondary" 
-                        type="button" onclick="mostrarPassword()"> 
-                    <span class="fa fa-eye-slash icon"></span> </button>
-              </div>
+
+            <!--El segundo parámetro se manda en null porque no lleva ningun
+            valor por defecto-->
+            {!!  Form::number('cod_recuperacion', null, ['class' => 'form-control', 'required']) !!}
         </div>
 
-        {!! Form::submit('Ingresar', ['class' => 'btn btn-success mtop16'])!!}
+        {!! Form::submit('Enviar mi contraseña', ['class' => 'btn btn-success mtop16'])!!}
         {!!  Form::close() !!}
 
         <div class="footer mtop16">
@@ -52,7 +49,7 @@
             </div>
 
             <div class="row mtop16">
-                <a href="{{url('/recover')}}">Recuperar contraseña</a>
+                <a href="{{url('/login')}}">Ingresar a mi cuenta</a>
             </div>
 
         </div>

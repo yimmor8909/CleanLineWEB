@@ -7,6 +7,22 @@
 @stop
 
 @section('content')
+    <div class="row">
+        <div class="col-md-6">
+            <label for="tipos_personas" class="mtop16">Tipo de persona:</label>
+            <div class="input-group">
+                <div class="input-group-text">
+                    <i class="far fa-id-card"></i>
+                </div>
+                <select name="tipos_personas" id="tipos_personas" class="form-select" required 
+                    onChange="mostrar();">
+                    <option value=''>Seleccione</option>
+                    @foreach ($tipos_personas as $tipopersona)
+                        <option value="{{ $tipopersona->id_opcion }}">{{ $tipopersona->nombre }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
 
 <div class="row">
   <div class="col-md-6">
@@ -30,31 +46,31 @@
     <h4>Datos de persona:</h4>
 </div>
 
-<div class="row">
-  <div class="col-md-6">
-      <label for="nombres">Nombres:</label>
-      <div class="input-group">
-          <div class="input-group-text">
-              <!--Hacer uso del fontawesome-->
-              <i class="fas fa-user"></i>
-          </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="nombres">Nombres:</label>
+            <div class="input-group">
+                <div class="input-group-text">
+                    <!--Hacer uso del fontawesome-->
+                    <i class="fas fa-user"></i>
+                </div>
 
-          <!--El segundo parámetro se manda en null porque no lleva ningun
-          valor por defecto-->
-          {!!  Form::text('nombres', null, ['class' => 'form-control', 'required']) !!}
-      </div>
-  </div>
+                <!--El segundo parámetro se manda en null porque no lleva ningun
+                      valor por defecto-->
+                {!! Form::text('nombres', null, ['class' => 'form-control', 'required', 'disabled']) !!}
+            </div>
+        </div>
 
-  <div class="col-md-6">
-      <label for="apellidos" class="mtop16">Apellidos:</label>
-      <div class="input-group">
-          <div class="input-group-text">
-              <i class="fas fa-user"></i>
-          </div>
-          {!!  Form::text('apellidos', null, ['class' => 'form-control', 'required']) !!}
-      </div>
-  </div>
-</div>
+        <div class="col-md-6">
+            <label for="apellidos" class="mtop16">Apellidos:</label>
+            <div class="input-group">
+                <div class="input-group-text">
+                    <i class="fas fa-user"></i>
+                </div>
+                {!! Form::text('apellidos', null, ['class' => 'form-control', 'disabled']) !!}
+            </div>
+        </div>
+    </div>
 
 <div class="row">
   <div class="col-md-6">

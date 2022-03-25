@@ -30,6 +30,11 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'getLogout']
 Route::get('/register', [App\Http\Controllers\LoginController::class, 'getRegister'])->name('getRegister');
 Route::post('/register', [App\Http\Controllers\LoginController::class, 'postRegister'])->name('postRegister');
 
+//Rutas para recuperar contraseña
+Route::get('/recover', [App\Http\Controllers\LoginController::class, 'getRecover'])->name('getRecover');
+Route::post('/recover', [App\Http\Controllers\LoginController::class, 'postRecover'])->name('postRecover');
+Route::get('/reset', [App\Http\Controllers\LoginController::class, 'getReset'])->name('getReset');
+
 //Proveedores
 Route::get('/proveedores/index', [App\Http\Controllers\ProveedorController::class, 'index'])->name('proveedores');
 Route::get('/proveedores/crear', [App\Http\Controllers\ProveedorController::class, 'crear'])->name('crearProveedores');

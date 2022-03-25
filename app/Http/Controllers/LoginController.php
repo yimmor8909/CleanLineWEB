@@ -10,6 +10,9 @@ use App\Models\User;
 use App\Models\Opciones_definidas;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserSendRecover;
+use GuzzleHttp\Psr7\Request as Psr7Request;
 
 class LoginController extends Controller
 {
@@ -98,6 +101,50 @@ class LoginController extends Controller
 
     public function getRecover(){
         return view('login.recover');
+    }
+
+    public function postRecover(Request $request){
+        $rules =[
+            'email' => 'required|email',
+        ];
+
+        $messages =[
+            'email.required' => 'El correo electrónico es requerido.',
+            'email.email' => 'El correo electrónico no cumple con el formato.'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if($validator->fails()):
+            return back()->withErrors($validator)->with('message', 'Error al recuperar la contraseña.')
+            ->with('typealert', 'danger');
+        else:
+            $usuario = User::where('email', $request->input('email'))->count();
+            if($usuario == "1"): //Quiere decir que el correo existe
+                $usuario = User::where('email', $request->input('email'))->first();
+                $code = rand(10000000, 99999999); 
+                $data =['email' =>  $usuario->email, 
+                        'code' => $code];
+
+                $u = User::find($usuario->id_usuario);
+                $u->password_code = $code;
+
+                if($u->save()):
+                    Mail::to($usuario->email)->send(new UserSendRecover($data));
+                    return redirect('/reset?email='.$usuario->email)->with('message', 'Ingrese el código que le hemos enviado a su correo electrónico.')->with('typealert', 'success');
+                endif;
+
+            else: //Quiere decir que el correo no existe
+                return back()->with('message', 'El correo electrónico no existe.')->with('typealert', 'danger');
+            endif;
+
+        endif;
+
+    }
+
+    public function getReset(Request $request){
+        $data = ['email' => $request->get('email')];
+        return view('login.reset', $data);
     }
 
     //Cerrar sesión del usuario
