@@ -34,6 +34,7 @@ Route::post('/register', [App\Http\Controllers\LoginController::class, 'postRegi
 Route::get('/recover', [App\Http\Controllers\LoginController::class, 'getRecover'])->name('getRecover');
 Route::post('/recover', [App\Http\Controllers\LoginController::class, 'postRecover'])->name('postRecover');
 Route::get('/reset', [App\Http\Controllers\LoginController::class, 'getReset'])->name('getReset');
+Route::post('/reset', [App\Http\Controllers\LoginController::class, 'postReset'])->name('postReset');
 
 //Proveedores
 Route::get('/proveedores/index', [App\Http\Controllers\ProveedorController::class, 'index'])->name('proveedores');
