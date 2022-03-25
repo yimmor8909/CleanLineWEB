@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+
     <div class="row">
         <div class="col-md-6">
             <label for="tipos_personas" class="mtop16">Tipo de persona:</label>
@@ -14,9 +15,9 @@
                 <div class="input-group-text">
                     <i class="far fa-id-card"></i>
                 </div>
-                <select name="tipos_personas" id="tipos_personas" class="form-select" required 
-                    onChange="mostrar();">
-                    <option value=''>Seleccione</option>
+                <select name="tipos_personas" id="tipos_personas" class="form-select" onchange="
+                habilitar(this.value);">
+                    <option value='0'>Seleccione *</option>
                     @foreach ($tipos_personas as $tipopersona)
                         <option value="{{ $tipopersona->id_opcion }}">{{ $tipopersona->nombre }}</option>
                     @endforeach
@@ -24,26 +25,9 @@
             </div>
         </div>
 
-<div class="row">
-  <div class="col-md-6">
-      <label for="tipos_personas" class="mtop16" >Tipo de persona:</label>
-      <div class="input-group">
-          <div class="input-group-text">
-              <i class="far fa-id-card"></i>
-          </div>
-          <select name="tipos_personas" class="form-select" required>
-              <option value=''>Seleccione *</option>
-              @foreach($tipos_personas as $tipopersona)
-              <option value="{{$tipopersona->id_opcion}}">{{$tipopersona->nombre}}</option>
-              @endforeach
-          </select>
-      </div>
-  </div>  
-</div>    
-<br>
 
 <div class="row">
-    <h4>Datos de persona:</h4>
+    <h4><br>Datos de persona:</h4>
 </div>
 
     <div class="row">
@@ -57,7 +41,7 @@
 
                 <!--El segundo parámetro se manda en null porque no lleva ningun
                       valor por defecto-->
-                {!! Form::text('nombres', null, ['class' => 'form-control', 'required', 'disabled']) !!}
+                {!! Form::text('nombres', null, ['class' => 'form-control', 'required', 'disabled','id'=>'nombres_persona']) !!}
             </div>
         </div>
 
@@ -67,7 +51,7 @@
                 <div class="input-group-text">
                     <i class="fas fa-user"></i>
                 </div>
-                {!! Form::text('apellidos', null, ['class' => 'form-control', 'disabled']) !!}
+                {!! Form::text('apellidos', null, ['class' => 'form-control', 'required','disabled', 'id' => 'apellidos_persona']) !!}
             </div>
         </div>
     </div>
@@ -79,7 +63,7 @@
           <div class="input-group-text">
               <i class="far fa-id-card"></i>
           </div>
-          <select name="tipo_documento" class="form-select" required>
+          <select disabled  id ='tipo_documento_persona' name="tipo_documento" class="form-select"  required>
               <option value=''>Seleccione *</option>
               @foreach($tipos_documentos as $tipodocumento)
               <option value="{{$tipodocumento->id_opcion}}">{{$tipodocumento->nombre}}</option>
@@ -95,7 +79,7 @@
           <div class="input-group-text">
               <i class="far fa-id-card"></i>
           </div>
-          {!!  Form::text('numero_documento', null, ['class' => 'form-control', 'required']) !!}
+          {!!  Form::text('numero_documento', null, ['class' => 'form-control', 'required', 'id'=>'documento_persona', 'disabled']) !!}
       </div>
   </div>
 </div>
@@ -108,7 +92,7 @@
             <div class="input-group-text">
                 <i class="fas fa-venus-mars"></i>
             </div>
-            <select name="tipo_documento" class="form-select" required>
+            <select disabled id="genero_persona" name="genero" class="form-select" required>
                 <option value=''>Seleccione *</option>
                 @foreach($generos as $genero)
                 <option value="{{$genero->id_opcion}}">{{$genero->nombre}}</option>
@@ -120,13 +104,13 @@
 
 
   <div class="col-md-6">
-    <label for="date" class="mtop16">Date</label>
+    <label for="date" class="mtop16">Fecha de nacimiento:</label>
     <div class="">
-        <div class="input-group date" id="datepicker">
+        <div  class="input-group date" id="datepicker">
             <span class="input-group-text">
                 <i class="fa fa-calendar"></i>
             </span>
-            <input type="text" class="form-control">
+            <input disabled id="calendario" type="text" class="form-control">
             <span class="input-group-append">
                
             </span>
@@ -134,6 +118,38 @@
     </div>
 </div>
 
+
+
+<div class="row">
+    
+    <h4><br>Datos de proveedor:</h4>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label id="nombres" for="nombres">Nombre:</label>
+        <div class="input-group">
+            <div class="input-group-text">
+                <!--Hacer uso del fontawesome-->
+                <i class="fa fa-industry" aria-hidden="true"></i>
+            </div>
+
+            <!--El segundo parámetro se manda en null porque no lleva ningun
+                  valor por defecto-->
+            {!! Form::text('nombres', null, ['class' => 'form-control', 'required', 'disabled']) !!}
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label for="nit">Nit:</label>
+        <div class="input-group">
+            <div class="input-group-text">
+                
+            </div>
+            {!! Form::text('nit', null, ['class' => 'input-group-text', 'enable']) !!}
+        </div>
+    </div>
+</div>
 
 @stop
 
@@ -162,5 +178,48 @@
     });
 </script>
 
+
+<script>
+    function habilitar(value)
+		{
+            
+                
+            
+            if(value=="0")
+			{
+				// deshabilitamos
+				document.getElementById("nombres_persona").disabled=true;
+                document.getElementById("apellidos_persona").disabled=true;
+                document.getElementById("tipo_documento_persona").disabled=true;
+                document.getElementById("documento_persona").disabled=true;
+                document.getElementById("genero_persona").disabled=true;
+                document.getElementById("calendario").disabled=true;
+            }
+       
+			if(value=="20" || value==true)
+            
+			{
+				// habilitamos
+				document.getElementById("nombres_persona").disabled=false;
+                document.getElementById("apellidos_persona").disabled=false;
+                document.getElementById("tipo_documento_persona").disabled=false;
+                document.getElementById("documento_persona").disabled=false;
+                document.getElementById("genero_persona").disabled=false;
+                document.getElementById("calendario").disabled=false;
+			}
+            
+            else if(value=="21" ){
+				// deshabilitamos
+				document.getElementById("nombres_persona").disabled=true;
+                document.getElementById("apellidos_persona").disabled=true;
+                document.getElementById("tipo_documento_persona").disabled=true;
+                document.getElementById("documento_persona").disabled=true;
+                document.getElementById("genero_persona").disabled=true;
+                document.getElementById("calendario").disabled=true;
+
+			}
+        
+		}
+</script>
 
 @stop
