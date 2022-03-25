@@ -39,6 +39,7 @@ class ProveedorController extends Controller
         $tipos_personas = Opciones_definidas::where('variable', '00tipopersona')->get();
         $tipos_documentos = Opciones_definidas::where('variable', '00identificacion')->get();
         $generos = Opciones_definidas::where('variable', '00genero')->get();
+    
 
 
         $data = ['tipos_personas' => $tipos_personas,

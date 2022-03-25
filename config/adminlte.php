@@ -258,6 +258,7 @@ return [
                 [
                     'text' => 'Consultar factura',
                     'url'  => '#',
+                    'icon'=>'fas fa-fw fa-search'
                 ]
             ],
         ],
@@ -266,12 +267,17 @@ return [
             'icon'    => 'fas fa-fw fa-cart-arrow-down',
             'submenu' => [
                 [
+
                     'text' => 'Crear',
                     'url'  => 'orden/crear',
+                    'icon'=>'fas fa-fw fa-plus'
+
                 ],
                 [
-                    'text' => 'Consultar',
+
+                    'text' => 'Consultar ',
                     'url'  => 'orden/consultar',
+                    'icon'=>'fas fa-fw fa-search'
                 ],
             ],
         ],
